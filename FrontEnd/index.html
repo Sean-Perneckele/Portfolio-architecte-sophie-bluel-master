@@ -11,17 +11,22 @@
 		rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="https://kit.fontawesome.com/39a98d775a.js" crossorigin="anonymous"></script>
 	<script src="./assets/JavaScript.js" defer> </script>
 </head>
 
 <body>
+	<div class="header--modification token" >
+		<p> <i class="fa-regular fa-pen-to-square"></i> Mode édition</p>
+		<span> puplier les changements</span>
+	</div>
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 		<nav>
 			<ul>
-				<li>projets</li>
-				<li>contact</li>
-				<li>login</li>
+				<li> <a href="index.html"> projets </a></li>
+				<li> <a href="#contact"> contact </a></li>
+				<li> <a href="login.html" class="login"> </a></li>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
@@ -30,6 +35,7 @@
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
+				<div class="token"><i class="fa-regular fa-pen-to-square"></i> modifier</div>
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
@@ -43,12 +49,12 @@
 			</article>
 		</section>
 		<section id="portfolio">
-			<h2>Mes Projets</h2>
+			<div class="projets--modification">
+				<h2> Mes Projets</h2>
+				<span class="token"><i class="fa-regular fa-pen-to-square"></i>  modifier</span>
+			</div>
 			<div class="bouton">
-				<button data-category="0">Tous</button>
-				<button data-category="1">Objets</button>
-				<button data-category="2">Appartements</button>
-				<button data-category="3">Hôtel & restaurants</button>
+
 			</div>
 			<div class="gallery">
 
@@ -77,5 +83,7 @@
 		</nav>
 	</footer>
 </body>
+
+
 
 </html>

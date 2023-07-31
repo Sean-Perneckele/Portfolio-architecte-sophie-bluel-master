@@ -56,7 +56,8 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 38px 0px;
+
 }
 section {
 	margin: 50px 0
@@ -102,14 +103,24 @@ li:hover {
 	display: flex;
 	align-items: center;
 }
+
+/**** gestion de l'image et son évolution  ****/
 #introduction figure {
-	flex: 1
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: center;
 }
 #introduction img {
 	display: block;
 	margin: auto;
 	width: 80%;
+	margin-bottom: 18px;
 }
+
+
+/******* ******/
 
 #introduction article {
 	flex: 1
@@ -211,5 +222,56 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a p {
+	text-decoration: underline;
+}
+
+/***** gestion des élément modifiable *****/
+
+.header--modification {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+
+	padding: 10px;
+	color: white;
+	background-color: black;
+}
+
+.header--modification span {
+	
+    color: black;
+    background-color: white;
+    text-align: center;
+    border-radius: 60px;
+	margin: 0px 10px;
+	padding: 10px;
+}
+
+
+.projets--modification {
+	display: flex;
+	justify-content: center;
+}
+
+.projets--modification span {
+	margin-top: 7px;
+	margin-left: 30px;
+}
+
+.fa-pen-to-square {
+	font-size: 18px;
+}
+
+.token-none {
+	display: none;
 }
 
