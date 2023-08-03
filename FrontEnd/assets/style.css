@@ -56,11 +56,12 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 38px 0px;
-
+	margin-top: 38px ;
+	margin-bottom: 120px;
 }
 section {
-	margin: 50px 0
+	margin-top: 20px;
+	margin-bottom: 100px;
 }
 
 h1{
@@ -99,6 +100,26 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
+/***** *****/
+
+main{
+	display: flex;
+	justify-content: center;
+}
+
+.center {
+	width: 80%;
+}
+
+#article {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+}
+
+
+/****** *****/
 #introduction {
 	display: flex;
 	align-items: center;
@@ -110,7 +131,7 @@ li:hover {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	align-content: center;
+	align-content: flex-start;
 }
 #introduction img {
 	display: block;
@@ -123,7 +144,9 @@ li:hover {
 /******* ******/
 
 #introduction article {
-	flex: 1
+	display: flex;
+	flex-direction: column;
+	width: 40%;
 }
 #introduction h2 {
 	margin-bottom: 1em;
@@ -149,7 +172,7 @@ li:hover {
 	border-radius: 60px;
 	min-width: 100px;
 	padding: 0px 20px;	
-	margin: 0px 5px 30px 5px;
+	margin: 0px 5px 50px 5px;
 	background-color: white;
 	color: #1D6154;
 	font-family: 'Syne';
@@ -160,6 +183,18 @@ li:hover {
 	color: white;
 }
 
+.button--popup{
+	height: 30px;
+	font-size: 1.0em;
+	border: 1px solid;
+	border-radius: 60px;
+	min-width: 100px;
+	padding: 0px 30px;	
+	margin: 0px 5px 30px 5px;
+	background-color: #1D6154;
+	color: white;
+	font-family: 'Syne';
+}
 
 /******  *****/
 
@@ -194,8 +229,8 @@ margin: auto;
 }
 
 #contact input {
-	height: 50px;
-	font-size: 1.2em;
+	height: 35px;
+	font-size: 1.0em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -221,7 +256,8 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
+	margin-top: 60px;
 }
 
 a {
@@ -260,6 +296,7 @@ a p {
 .projets--modification {
 	display: flex;
 	justify-content: center;
+	margin-bottom: 50px;
 }
 
 .projets--modification span {
@@ -271,7 +308,102 @@ a p {
 	font-size: 18px;
 }
 
+
 .token-none {
 	display: none;
 }
 
+/***** *****/
+
+#dialog {
+	position: absolute; /* Utiliser "fixed" au lieu de "absolute" */
+	top: 0;
+	left: 0;
+	display: none;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+	height: 510%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	
+	
+}
+
+.contenu {
+position: absolute;
+display: flex;
+flex-direction: column;
+align-items: center;
+top: 21%;
+width: 630px;
+
+background-color: white;
+border-radius: 3%;
+}
+
+#dialog .dialogExit{
+	display: flex;
+	justify-content: end;
+	width: 94%;
+}
+
+#hide {
+	border: none;
+    background-color: white;
+    margin: 30px 30px 0px 0px;
+    font-size: 20px;
+}
+
+.dialogContent{
+	display: flex;
+	flex-wrap: wrap;
+	width: 70%;
+
+	border-bottom:#B3B3B3 1px solid ;
+
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+}
+
+.dialogContent img {
+	height: 100px;
+	width: 75px;
+
+	margin: 5px;
+	z-index: 1;
+}
+
+.dialogContent figure {
+
+	display: flex;
+	flex-direction: column;
+}
+
+#dialog .dialogContent button {
+	
+    position: relative;
+    z-index: 2;
+    border: none;
+    color: white;
+    background-color: rgba(0,0,0,0.8);
+	font-size: 13px;
+    top: 32px;
+    left: 49px;
+    width: 24px;
+    height: 18px;
+}
+
+
+#dialog h2 {
+	font-family:'Work Sans';
+	color: black;
+	margin-bottom: 30px;
+}
+
+.dialogSupr button {
+	background: white;
+    border: none;
+    color: red;
+    margin-bottom: 50px;
+}

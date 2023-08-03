@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<div class="header--modification token" >
+	<div class="header--modification token">
 		<p> <i class="fa-regular fa-pen-to-square"></i> Mode édition</p>
 		<span> puplier les changements</span>
 	</div>
@@ -32,12 +32,13 @@
 		</nav>
 	</header>
 	<main>
+	<div class="center">	
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
 				<div class="token"><i class="fa-regular fa-pen-to-square"></i> modifier</div>
 			</figure>
-			<article>
+			<article id="article">
 				<h2>Designer d'espace</h2>
 				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
 					finale du chantier.</p>
@@ -48,11 +49,32 @@
 					décorateur(trice)</p>
 			</article>
 		</section>
+
+		<div class="projets--modification">
+			<h2> Mes Projets</h2>
+			<button id="show" class="token"><i class="fa-regular fa-pen-to-square"></i> modifier</button>
+
+			<dialog id="dialog">
+				<div class="contenu">
+
+				<div class="dialogExit"><button id="hide"><i class="fa-solid fa-xmark"></i></button></div>
+				<h2>Galerie Photo</h2>
+
+				<div class="dialogContent">
+				</div>
+
+				<div class="dialogAjout"><button class="button--popup">Ajouter une photo</button></div>
+				<div class="dialogSupr"><button>Suprimer la galerie</button></div>
+
+
+
+
+				</div>
+			  </dialog>
+		</div>
+		
 		<section id="portfolio">
-			<div class="projets--modification">
-				<h2> Mes Projets</h2>
-				<span class="token"><i class="fa-regular fa-pen-to-square"></i>  modifier</span>
-			</div>
+
 			<div class="bouton">
 
 			</div>
@@ -73,6 +95,7 @@
 				<input type="submit" value="Envoyer">
 			</form>
 		</section>
+	</div>	
 	</main>
 
 	<footer>

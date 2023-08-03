@@ -155,7 +155,7 @@ const login = document.querySelector(".login");
 login.addEventListener("click", (event) => {
 
   localStorage.removeItem("token");
-  
+
 
 })
 
@@ -177,5 +177,75 @@ if (localStorage.getItem("token")) {
   });
   login.innerText = "login"
 
+}
+
+
+//gestion popup
+
+async function popup() {
+  let dialog = document.getElementById('dialog');
+  document.getElementById('show').onclick = function () {
+    dialog.style.display = "flex"; // Afficher la popup
+    teste() ;
+  };
+  document.getElementById('hide').onclick = function () {
+    effacement()
+    dialog.style.display = "none"; // Masquer la popup
+  };
+
+  // Fermer la popup lorsque l'utilisateur clique en dehors du contenu de la popup
+  dialog.onclick = function (event) {
+    // Si l'élément cliqué est la popup elle-même (background transparent),
+    // on ferme la popup
+    if (event.target === dialog) {
+      effacement()
+      dialog.style.display = "none";
+    }
+  };
+} popup();
+
+function effacement() {
+  const truc = document.querySelector(".dialogContent")
+
+  truc.innerHTML=" "
+}
+
+async function teste() {
+
+  
+
+  const dialog = document.querySelector(".dialog")
+  
+
+  const data = await donnée();
+
+  for (let slide of data) {
+
+    const image = slide.imageUrl;
+
+    console.log(image,);
+
+    // Création des éléments du DOM et de leur contenu
+
+    const dialogContent = document.querySelector(".dialogContent");
+    const contenant = document.createElement("figure");
+
+    const img = document.createElement("img");
+    img.src = image;
+    
+    const bonton = document.createElement("button");
+    bonton.innerHTML=`<i class="fa-solid fa-trash-can"></i>`
+    const texte = document.createElement("figcaption");
+    texte.innerText = "éditer";
+
+    // Mise en place des éléments crée dans le DOM 
+
+    contenant.appendChild(bonton);
+    contenant.appendChild(img);
+    contenant.appendChild(texte);
+    dialogContent.appendChild(contenant);
+
+    
+  }
 }
 
