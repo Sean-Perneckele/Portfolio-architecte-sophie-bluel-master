@@ -45,8 +45,10 @@ formulaire.addEventListener("submit", (event) => {
             if (data.token) {
                 // stocke le token dans une variable
                 const token = data.token;
+                const userId= data.userId
                 // stocker le token dans le local storage
                 localStorage.setItem('token', token);
+                localStorage.setItem('userId', userId)
                 console.log("Authentification réussie !");
 
                 window.location.href = 'index.html';

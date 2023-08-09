@@ -32,70 +32,119 @@
 		</nav>
 	</header>
 	<main>
-	<div class="center">	
-		<section id="introduction">
-			<figure>
-				<img src="./assets/images/sophie-bluel.png" alt="">
-				<div class="token"><i class="fa-regular fa-pen-to-square"></i> modifier</div>
-			</figure>
-			<article id="article">
-				<h2>Designer d'espace</h2>
-				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
-					finale du chantier.</p>
-				<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
-					couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
-					chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
-				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
-					décorateur(trice)</p>
-			</article>
-		</section>
+		<div class="center">
+			<section id="introduction">
+				<figure>
+					<img src="./assets/images/sophie-bluel.png" alt="">
+					<div class="token"><i class="fa-regular fa-pen-to-square"></i> modifier</div>
+				</figure>
+				<article id="article">
+					<h2>Designer d'espace</h2>
+					<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la
+						livraison
+						finale du chantier.</p>
+					<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
+						couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
+						chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+					<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
+						décorateur(trice)</p>
+				</article>
+			</section>
 
-		<div class="projets--modification">
-			<h2> Mes Projets</h2>
-			<button id="show" class="token"><i class="fa-regular fa-pen-to-square"></i> modifier</button>
+			<div class="projets--modification">
+				<h2> Mes Projets</h2>
+				<button id="show" class="token"><i class="fa-regular fa-pen-to-square"></i> modifier</button>
 
-			<dialog id="dialog">
-				<div class="contenu">
+				<dialog id="dialog">
+					<div class="contenu">
+						<div class="dialogExit"><button id="hide"><i class="fa-solid fa-xmark"></i></button></div>
+						<h2>Galerie Photo</h2>
 
-				<div class="dialogExit"><button id="hide"><i class="fa-solid fa-xmark"></i></button></div>
-				<h2>Galerie Photo</h2>
+						<div class="dialogContent">
+						</div>
 
-				<div class="dialogContent">
+						<div class="dialogAjout"><button id="show2" class="button--popup">Ajouter une photo</button>
+						</div>
+						<div class="dialogSupr"><button>Suprimer la galerie</button></div>
+					</div>
+				</dialog>
+
+				<dialog id="dialog2">
+					<div class="contenu" id="contact">
+
+						<div class="dialogExit2"> <button id="return"><i
+									class="fa-solid fa-arrow-left"></i></button><button id="hide2"><i
+									class="fa-solid fa-xmark"></i></button></div>
+						<h2>Ajout photo</h2>
+
+						<div class="dialogForm">
+							<form action="#" method="post" enctype="multipart/form-data">
+
+								<div class="selection">
+									<div class="selection--image"> <svg width="58" height="58" viewBox="0 0 58 58"
+											fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M57 6H1C0.448 6 0 6.447 0 7V51C0 51.553 0.448 52 1 52H57C57.552 52 58 51.553 58 51V7C58 6.447 57.552 6 57 6ZM56 50H2V8H56V50Z"
+												fill="#B9C5CC" />
+											<path
+												d="M16 28.138C19.071 28.138 21.569 25.64 21.569 22.57C21.569 19.498 19.071 17 16 17C12.929 17 10.431 19.498 10.431 22.569C10.431 25.64 12.929 28.138 16 28.138ZM16 19C17.968 19 19.569 20.602 19.569 22.569C19.569 24.536 17.968 26.138 16 26.138C14.032 26.138 12.431 24.537 12.431 22.57C12.431 20.603 14.032 19 16 19Z"
+												fill="#B9C5CC" />
+											<path
+												d="M7.00004 46C7.23404 46 7.47004 45.918 7.66004 45.751L23.973 31.389L34.275 41.69C34.666 42.081 35.298 42.081 35.689 41.69C36.08 41.299 36.08 40.667 35.689 40.276L30.882 35.469L40.063 25.415L51.324 35.738C51.731 36.111 52.364 36.083 52.737 35.676C53.11 35.269 53.083 34.636 52.675 34.263L40.675 23.263C40.479 23.084 40.218 22.995 39.955 23.001C39.69 23.013 39.44 23.13 39.261 23.326L29.467 34.053L24.724 29.31C24.35 28.937 23.752 28.918 23.356 29.266L6.33904 44.249C5.92404 44.614 5.88404 45.246 6.24904 45.661C6.44704 45.886 6.72304 46 7.00004 46Z"
+												fill="#B9C5CC" />
+										</svg>
+
+										<label for="photo" class="ajouterPhoto">
+											+ Ajouter photo
+										</label>
+										<input type="file" id="photo" name="photo" accept=".jpg, .png">
+										<p>jpg, png : 4mo max</p>
+									</div>
+
+									<div>
+										<label for="photo"><img id="imagePreview" src="#" alt="Aperçu de l'image"
+												style="display: none;"></label>
+									</div>
+								</div>
+								<label for="title">Titre</label>
+								<input type="text" name="title" id="title">
+								<label for="category">Catégorie</label>
+								<select id="category" name="category">
+									<option value=""></option>
+									<option value="1">Objets</option>
+									<option value="2">Appartements</option>
+									<option value="3">Hotels & restaurants</option>
+								</select>
+							</form>
+						</div>
+
+						<div class="dialogAjout"><button class="button--popup popup2">Valider</button></div>
+					</div>
+				</dialog>
+			</div>
+
+			<section id="portfolio">
+				<div class="bouton">
 				</div>
 
-				<div class="dialogAjout"><button class="button--popup">Ajouter une photo</button></div>
-				<div class="dialogSupr"><button>Suprimer la galerie</button></div>
-
-
-
-
+				<div class="gallery">
 				</div>
-			  </dialog>
+			</section>
+
+			<section id="contact">
+				<h2>Contact</h2>
+				<p>Vous avez un projet ? Discutons-en !</p>
+				<form action="#" method="post">
+					<label for="name">Nom</label>
+					<input type="text" name="name" id="name">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" cols="30" rows="10"></textarea>
+					<input type="submit" value="Envoyer">
+				</form>
+			</section>
 		</div>
-		
-		<section id="portfolio">
-
-			<div class="bouton">
-
-			</div>
-			<div class="gallery">
-
-			</div>
-		</section>
-		<section id="contact">
-			<h2>Contact</h2>
-			<p>Vous avez un projet ? Discutons-en !</p>
-			<form action="#" method="post">
-				<label for="name">Nom</label>
-				<input type="text" name="name" id="name">
-				<label for="email">Email</label>
-				<input type="email" name="email" id="email">
-				<label for="message">Message</label>
-				<textarea name="message" id="message" cols="30" rows="10"></textarea>
-				<input type="submit" value="Envoyer">
-			</form>
-		</section>
-	</div>	
 	</main>
 
 	<footer>
