@@ -53,7 +53,7 @@ formulaire.addEventListener("submit", (event) => {
 
                 window.location.href = 'index.html';
             } else {
-                console.log("Authentification échouée. Vérifiez vos informations de connexion.");
+                window.alert("Il y a une erreur dans le mot de passe ou l'adresse émail. ");
             }
         });
 })

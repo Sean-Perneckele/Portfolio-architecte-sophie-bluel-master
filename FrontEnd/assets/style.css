@@ -247,6 +247,8 @@ main {
 	cursor: pointer;
 }
 
+
+
 #contact label {
 	margin: 2em 0 1em 0;
 }
@@ -340,8 +342,12 @@ a p {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
+.popup1, .popup2 {
+	justify-content: center;
+}
+
 .contenu,
-#dialog2 .contenu {
+#dialog .popup2 .contenu2 {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
@@ -417,7 +423,7 @@ a p {
 	cursor: pointer;
 }
 
-#dialog2 .dialogForm #photo {
+#dialog .dialogForm #photo {
 	display: none;
 }
 
@@ -463,7 +469,7 @@ a p {
 	max-width: 100%;
 }
 
-.contenu .popup2 {
+.contenu .envoi {
 	background-color: #a7a7a7;
 }
 

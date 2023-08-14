@@ -103,7 +103,7 @@ function construction(data) {
 
     const image = slide.imageUrl;
     const title = slide.title;
-    console.log(image, title);
+    //console.log(image, title);
 
     // Création des éléments du DOM et de leur contenu
 
@@ -124,7 +124,9 @@ function construction(data) {
   }
 }
 
-// on va géré le connextion
+// fin de la construction de la galerie et des filtre. 
+
+// On va géré le connexion
 
 const login = document.querySelector(".login");
 
@@ -152,50 +154,60 @@ if (localStorage.getItem("token")) {
   boutonContainer.style.display = 'flex';
 }
 
+// fin de la gestion de la connexion 
+
 //gestion popup
 
-async function popup() {
-  let dialog = document.getElementById('dialog');
-  document.getElementById('show').onclick = function () {
-    dialog.style.display = "flex"; // Afficher la popup 1
-    teste();
-  };
-  document.getElementById('hide').onclick = function () {
+// on vise tout nos élément 
+let dialog = document.getElementById('dialog');
+let popup1 = document.querySelector('.popup1');
+let popup2 = document.querySelector('.popup2');
+
+
+// on écrit la fonction  1
+async function dialog1() {
+  document.getElementById('show').addEventListener('click', () => {
+    popup1.style.display= "flex"; // affiche la popup 1
+    popup2.style.display = "none";
+    dialog.style.display = "flex"; // Afficher la fenêtre "dialog"
+    imgPopup();
+  });
+  document.getElementById('hide').addEventListener('click', () => {
     effacement();
-    dialog.style.display = "none"; // Masquer la popup 1
-  };
+    dialog.style.display = "none"; // ferme la fenêtre "dialog"
+    popup1.style.display = "none"; // Masquer la popup 1
+  });
   fermeturePopup(dialog)
-} popup();
+} dialog1();
 
 // ouvre la seconde pop up en fermant la première.
 
-function popup2() {
-  let dialog = document.getElementById('dialog2');
-  document.getElementById('show2').onclick = function () {
+function dialog2() {
 
-    dialog.style.display = "flex"; // Afficher la popup 2
-    effacement();
+  document.getElementById('show2').addEventListener('click', () => {
 
-    let dialog2 = document.getElementById('dialog');
-    dialog2.style.display = "none"; // Masque la popup 1
+    popup2.style.display = "flex"; // Afficher la popup 2
+    effacement(); 
+    popup1.style.display = "none"; // Masque la popup 1
 
-  };
-  document.getElementById('hide2').onclick = function () {
-    dialog.style.display = "none"; // Masque la popup 2
-  };
+  });
+  document.getElementById('hide2').addEventListener('click', () => {
+    popup2.style.display= "none" ;// Masque la popup 2
+    dialog.style.display = "none"; // ferme la fenêtre "dialog"
+  });
 
   // bouton perméttant de retourner a la popup 1
 
-  document.getElementById('return').onclick = function () {
-    dialog.style.display = "none"; // Masque la popup 2
+  document.getElementById('return').addEventListener('click', () => {
+    popup2.style.display = "none"; // Masque la popup 2
 
     // fait apparaitre la popup 1
-    let dialog2 = document.getElementById('dialog');
-    dialog2.style.display = "flex"; // Afficher la popup
-    teste();
-  }
+  
+    popup1.style.display = "flex"; // Afficher la popup 1
+    imgPopup();
+  })
   fermeturePopup(dialog)
-} popup2();
+} dialog2();
 
 // Fermer la popup lorsque l'utilisateur clique en dehors du contenu de la popup
 
@@ -220,7 +232,7 @@ function effacement() {
 
 // on contruis les images de la popup 1
 
-async function teste() {
+async function imgPopup() {
 
   const dialog = document.querySelector(".dialog")
   const data = await donnée();
@@ -252,6 +264,8 @@ async function teste() {
     contenant.appendChild(texte);
     dialogContent.appendChild(contenant);
   }
+
+  // on récupère les bouton des image
   let clickableButtons = document.querySelectorAll('.dialogContent figure button')
   console.log("Nombre de boutons sélectionnés :", clickableButtons.length)
 
@@ -264,7 +278,8 @@ async function teste() {
       console.log(imageId);
       deleteImage(imageId);
       effacement();
-      teste()
+      imgPopup()
+      travaux()
     });
   });
 }
@@ -322,15 +337,15 @@ inputPhoto.addEventListener('change', (event) => {
       URL.revokeObjectURL(imageURL);
     }
     //    fait réaparaite la sélection
-    sélection.style.display = 'block';
+    sélection.style.display = 'flex';
   }
 })
 
 // gestion des formulaire 
 
 const token = localStorage.getItem('token'); // Récupérez le token depuis le local storage
-const formulaire = document.querySelector('.popup2');
-//const inputPhoto a été déclarer trouve plustôt pour la gestion de l'image dans la popup 2 
+const formulaire = document.querySelector('.envoi');
+//const inputPhoto a été déclarer plustôt pour la gestion de l'image dans la popup 2 
 const titleElement = document.getElementById('title');
 const categoriesElement = document.getElementById('category');
 
@@ -359,6 +374,24 @@ formulaire.addEventListener("click", (event) => {
     },
     body: formData,
   })
+
+  .then(response => {
+    if (!response.ok) {
+      // La requête a renvoyé une réponse avec un code de statut d'erreur
+      throw new Error("Erreur lors de la mise à jour de l'API");
+    }
+      response.json() 
+    })
+  
+      .then(data => {
+    // Appel de la fonction travaux() après la mise à jour réussie de l'API
+    travaux();
+  })
+  .catch(error => {
+    console.error("Erreur lors de la mise à jour de l'API :", error);
+    window.alert("Il y a une erreur dans l'envoi des données");
+
+  });
 })
 
 // Sélectionnez l'élément input pour lequel vous souhaitez ajouter l'événement
@@ -387,3 +420,4 @@ function updateButtonStyle() {
     formulaire.style.backgroundColor = ' #a7a7a7';
   }
 }
+updateButtonStyle()
